@@ -1,11 +1,13 @@
 package io.github.asthenia0412.multipleformatreportexport.util;
 
 import io.github.asthenia0412.multipleformatreportexport.entity.CodeAnalysis;
+import io.github.asthenia0412.multipleformatreportexport.util.generator.HtmlReportGenerator;
+import io.github.asthenia0412.multipleformatreportexport.util.generator.PdfReportGenerator;
+import io.github.asthenia0412.multipleformatreportexport.util.generator.XmlReportGenerator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xwpf.usermodel.*;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -124,7 +126,7 @@ public class ReportExportUtil {
             try {
                 return PdfReportGenerator.generateReport(dataList);
             } catch (Exception e) {
-                throw new RuntimeException("PDF导出失败", e);
+                throw new RuntimeException("", e);
             }
         });
     }

@@ -1,4 +1,4 @@
-package io.github.asthenia0412.multipleformatreportexport.util;
+package io.github.asthenia0412.multipleformatreportexport.util.generator;
 
 import io.github.asthenia0412.multipleformatreportexport.entity.CodeAnalysis;
 import java.time.format.DateTimeFormatter;

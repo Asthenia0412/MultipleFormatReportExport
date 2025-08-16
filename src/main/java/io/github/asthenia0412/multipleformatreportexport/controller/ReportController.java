@@ -31,6 +31,7 @@ public class ReportController {
         
         // 验证格式是否支持
         if (!ExportStrategyFactory.isFormatSupported(format)) {
+            // CompletedFuture的会用NIL解决空指针问题-内部存储一个CompletableFuture实例
             return CompletableFuture.completedFuture(
                 ResponseEntity.badRequest().body("不支持的导出格式: ".getBytes())
             );

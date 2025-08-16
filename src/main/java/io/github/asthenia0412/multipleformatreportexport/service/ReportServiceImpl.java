@@ -6,16 +6,12 @@ import io.github.asthenia0412.multipleformatreportexport.mapper.CodeAnalysisMapp
 import io.github.asthenia0412.multipleformatreportexport.mapper.FormatInfoMapper;
 import io.github.asthenia0412.multipleformatreportexport.util.ExportStrategy;
 import io.github.asthenia0412.multipleformatreportexport.util.ExportStrategyFactory;
-import io.github.asthenia0412.multipleformatreportexport.util.HtmlReportGenerator;
-import io.github.asthenia0412.multipleformatreportexport.util.PdfReportGenerator;
-import io.github.asthenia0412.multipleformatreportexport.util.XmlReportGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 @Service
 public class ReportServiceImpl implements ReportService {
