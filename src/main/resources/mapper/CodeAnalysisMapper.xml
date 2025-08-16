@@ -13,16 +13,15 @@
 </resultMap>
 
     <select id="findByIssueType" resultMap="CodeAnalysisMapper">
-        select file_name , file_path, issue_type ,code_line, issue_count, created_at, updated_at
+        select id, file_name , file_path, issue_type ,code_line, issue_count, created_at, updated_at
         from code_analysis
         where issue_type = #{issueType}
         limit #{offset},#{pageSize}
     </select>
 
     <select id="findAllWithPagination" resultMap="CodeAnalysisMapper">
-        select file_name , file_path, issue_type ,code_line, issue_count, created_at, updated_at
+        select id, file_name , file_path, issue_type ,code_line, issue_count, created_at, updated_at
         from code_analysis
-
         limit #{offset},#{pageSize}
     </select>
 
