@@ -2,6 +2,12 @@
 
 一个基于Spring Boot2的多格式报告导出系统，支持Excel、Word、PDF、HTML、XML等多种格式的代码质量分析报告导出。
 
+## 关于调试
+
+推荐在IDEA内使用APIFOX插件，在项目启动后，可通过插件在IDEA中完成对接口的调试工作
+
+![apiFox](./assets/apiFox.png)
+
 ## 功能特性
 
 -  **多格式支持**: 支持XLS、XLSX、DOCX、PDF、HTML、XML等多种导出格式
