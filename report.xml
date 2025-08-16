@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeQualityReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="code-quality-report.xsd">
+    <reportHeader>
+        <title>代码质量检测报告</title>
+        <subtitle>Code Quality Analysis Report</subtitle>
+        <generatedAt>2025-08-16 16:37:38</generatedAt>
+        <version>1.0</version>
+    </reportHeader>
+    <executiveSummary>
+        <totalFiles>3</totalFiles>
+        <totalIssues>21</totalIssues>
+        <totalCodeLines>640</totalCodeLines>
+        <averageIssueDensity>32.81</averageIssueDensity>
+        <issueDensityUnit>问题/千行</issueDensityUnit>
+    </executiveSummary>
+    <issueTypeStatistics>
+        <issueType>
+            <type>Bug</type>
+            <fileCount>3</fileCount>
+        </issueType>
+    </issueTypeStatistics>
+    <detailedResults>
+        <file>
+            <id>2</id>
+            <fileName>ServiceImpl.java</fileName>
+            <filePath>/src/main/java/com/example/ServiceImpl.java</filePath>
+            <codeLine>300</codeLine>
+            <issueCount>10</issueCount>
+            <issueType>Bug</issueType>
+            <createdAt>2025-08-16 03:23:57</createdAt>
+            <updatedAt>2025-08-16 03:23:57</updatedAt>
+        </file>
+        <file>
+            <id>6</id>
+            <fileName>Mapper.java</fileName>
+            <filePath>/src/main/java/com/example/Mapper.java</filePath>
+            <codeLine>120</codeLine>
+            <issueCount>4</issueCount>
+            <issueType>Bug</issueType>
+            <createdAt>2025-08-16 03:23:57</createdAt>
+            <updatedAt>2025-08-16 03:23:57</updatedAt>
+        </file>
+        <file>
+            <id>10</id>
+            <fileName>Api.java</fileName>
+            <filePath>/src/main/java/com/example/Api.java</filePath>
+            <codeLine>220</codeLine>
+            <issueCount>7</issueCount>
+            <issueType>Bug</issueType>
+            <createdAt>2025-08-16 03:23:57</createdAt>
+            <updatedAt>2025-08-16 03:23:57</updatedAt>
+        </file>
+    </detailedResults>
+    <recommendations>
+        <recommendation>定期进行代码质量检测，建立代码质量门禁机制</recommendation>
+        <recommendation>对发现的问题进行分类处理，优先解决高严重性问题</recommendation>
+        <recommendation>建立代码审查流程，提高代码质量意识</recommendation>
+        <recommendation>使用自动化工具进行持续集成和持续部署</recommendation>
+        <recommendation>定期进行代码重构，减少技术债务</recommendation>
+    </recommendations>
+    <metadata>
+        <generator>MultipleFormatReportExport</generator>
+        <format>XML</format>
+        <encoding>UTF-8</encoding>
+        <schemaVersion>1.0</schemaVersion>
+    </metadata>
+</codeQualityReport>

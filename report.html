@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码质量检测报告</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; }
+        .title { font-size: 28px; font-weight: bold; margin-bottom: 10px; }
+        .subtitle { font-size: 20px; margin-bottom: 15px; opacity: 0.9; }
+        .date { font-size: 16px; opacity: 0.8; }
+        .section { margin: 40px 0; padding: 20px; border-left: 4px solid #667eea; background-color: #fafafa; border-radius: 5px; }
+        .section-title { font-size: 22px; font-weight: bold; color: #333; margin-bottom: 20px; display: flex; align-items: center; }
+        .section-title::before { content: '📊'; margin-right: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #e0e0e0; padding: 12px; text-align: left; }
+        th { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e3f2fd; transition: background-color 0.3s; }
+        .summary-table { width: 60%; margin: 20px auto; }
+        .stats-table { width: 50%; margin: 20px auto; }
+        .recommendations { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 25px; border-radius: 10px; margin: 20px 0; }
+        .recommendations ul { margin: 15px 0; }
+        .recommendations li { margin: 10px 0; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .metric-card { display: inline-block; margin: 10px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; min-width: 150px; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #667eea; }
+        .metric-label { font-size: 14px; color: #666; margin-top: 5px; }
+        .toc { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .toc ul { list-style: none; padding: 0; }
+        .toc li { margin: 8px 0; }
+        .toc a { color: #667eea; text-decoration: none; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; }
+        @media print { body { background-color: white; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">代码质量检测报告</div>
+            <div class="subtitle">Code Quality Analysis Report</div>
+            <div class="date">生成时间：2025-08-16 16:37:08</div>
+        </div>
+        <div class="toc">
+            <h3>📋 目录</h3>
+            <ul>
+                <li><a href="#summary">1. 执行摘要</a></li>
+                <li><a href="#details">2. 详细检测结果</a></li>
+                <li><a href="#statistics">3. 问题统计分析</a></li>
+                <li><a href="#recommendations">4. 建议和改进措施</a></li>
+            </ul>
+        </div>
+        <div id="summary" class="section">
+            <div class="section-title">执行摘要</div>
+            <div style="text-align: center; margin: 20px 0;">
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">检测文件总数</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">21</div>
+                    <div class="metric-label">发现问题总数</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">640</div>
+                    <div class="metric-label">代码总行数</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">32.81</div>
+                    <div class="metric-label">问题/千行</div>
+                </div>
+            </div>
+            <table class="summary-table">
+                <tr><th>指标</th><th>数值</th></tr>
+                <tr><td>检测文件总数</td><td>3</td></tr>
+                <tr><td>发现问题总数</td><td>21</td></tr>
+                <tr><td>代码总行数</td><td>640</td></tr>
+                <tr><td>平均问题密度</td><td>32.81 问题/千行</td></tr>
+            </table>
+        </div>
+        <div id="details" class="section">
+            <div class="section-title">详细检测结果</div>
+            <table>
+                <tr><th>ID</th><th>文件名</th><th>文件路径</th><th>代码行数</th><th>问题数量</th><th>问题类型</th><th>创建时间</th><th>更新时间</th></tr>
+                <tr><td>2</td><td>ServiceImpl.java</td><td>/src/main/java/com/example/ServiceImpl.java</td><td>300</td><td>10</td><td>Bug</td><td>2025-08-16 03:23:57</td><td>2025-08-16 03:23:57</td></tr>
+                <tr><td>6</td><td>Mapper.java</td><td>/src/main/java/com/example/Mapper.java</td><td>120</td><td>4</td><td>Bug</td><td>2025-08-16 03:23:57</td><td>2025-08-16 03:23:57</td></tr>
+                <tr><td>10</td><td>Api.java</td><td>/src/main/java/com/example/Api.java</td><td>220</td><td>7</td><td>Bug</td><td>2025-08-16 03:23:57</td><td>2025-08-16 03:23:57</td></tr>
+            </table>
+        </div>
+        <div id="statistics" class="section">
+            <div class="section-title">问题统计分析</div>
+            <table class="stats-table">
+                <tr><th>问题类型</th><th>文件数量</th></tr>
+                <tr><td>Bug</td><td>3</td></tr>
+            </table>
+        </div>
+        <div id="recommendations" class="section">
+            <div class="section-title">建议和改进措施</div>
+            <div class="recommendations">
+                <ul>
+                    <li>定期进行代码质量检测，建立代码质量门禁机制</li>
+                    <li>对发现的问题进行分类处理，优先解决高严重性问题</li>
+                    <li>建立代码审查流程，提高代码质量意识</li>
+                    <li>使用自动化工具进行持续集成和持续部署</li>
+                    <li>定期进行代码重构，减少技术债务</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

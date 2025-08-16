@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.asthenia0412.multipleformatreportexport.mapper.FormatInfoMapper">
+    
+    <!-- 结果映射 -->
+    <resultMap id="FormatInfoResultMap" type="io.github.asthenia0412.multipleformatreportexport.entity.FormatInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="format_name" property="formatName" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="mime_type" property="mimeType" jdbcType="VARCHAR"/>
+        <result column="file_extension" property="fileExtension" jdbcType="VARCHAR"/>
+        <result column="supported" property="supported" jdbcType="BOOLEAN"/>
+        <result column="features" property="features" jdbcType="VARCHAR" 
+                typeHandler="io.github.asthenia0412.multipleformatreportexport.util.JsonTypeHandler"/>
+        <result column="created_time" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    
+    <!-- 基础字段 -->
+    <sql id="Base_Column_List">
+        id, format_name, description, mime_type, file_extension, supported, features, 
+        created_time, updated_time
+    </sql>
+    
+    <!-- 根据格式名称查询 -->
+    <select id="selectByFormatName" parameterType="string" resultMap="FormatInfoResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM format_info
+        WHERE format_name = #{formatName}
+    </select>
+    
+    <!-- 查询所有支持的格式 -->
+    <select id="selectSupportedFormats" resultMap="FormatInfoResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM format_info
+        WHERE supported = TRUE
+        ORDER BY format_name
+    </select>
+    
+    <!-- 查询所有格式信息 -->
+    <select id="selectAll" resultMap="FormatInfoResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM format_info
+        ORDER BY format_name
+    </select>
+    
+    <!-- 插入格式信息 -->
+    <insert id="insert" parameterType="io.github.asthenia0412.multipleformatreportexport.entity.FormatInfo"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO format_info (
+            format_name, description, mime_type, file_extension, supported, features
+        ) VALUES (
+            #{formatName}, #{description}, #{mimeType}, #{fileExtension}, #{supported}, 
+            #{features,typeHandler=io.github.asthenia0412.multipleformatreportexport.util.JsonTypeHandler}
+        )
+    </insert>
+    
+    <!-- 更新格式信息 -->
+    <update id="update" parameterType="io.github.asthenia0412.multipleformatreportexport.entity.FormatInfo">
+        UPDATE format_info
+        SET description = #{description},
+            mime_type = #{mimeType},
+            file_extension = #{fileExtension},
+            supported = #{supported},
+            features = #{features,typeHandler=io.github.asthenia0412.multipleformatreportexport.util.JsonTypeHandler},
+            updated_time = CURRENT_TIMESTAMP
+        WHERE format_name = #{formatName}
+    </update>
+    
+    <!-- 删除格式信息 -->
+    <delete id="deleteByFormatName" parameterType="string">
+        DELETE FROM format_info
+        WHERE format_name = #{formatName}
+    </delete>
+    
+    <!-- 检查格式是否支持 -->
+    <select id="isFormatSupported" parameterType="string" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM format_info
+        WHERE format_name = #{formatName} AND supported = TRUE
+    </select>
+    
+</mapper>
