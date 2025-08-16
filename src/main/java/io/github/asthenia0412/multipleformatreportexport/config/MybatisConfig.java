@@ -1,6 +1,8 @@
 package io.github.asthenia0412.multipleformatreportexport.config;
 
+import io.github.asthenia0412.multipleformatreportexport.util.JsonTypeHandler;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,15 @@ public class MybatisConfig {
         );
         
         // 设置别名包
-        sessionFactory.setTypeAliasesPackage("io.github.asthenia0412.multipleformatreportexport.model");
+        sessionFactory.setTypeAliasesPackage("io.github.asthenia0412.multipleformatreportexport.entity");
         
-        return sessionFactory.getObject();
+        // 创建SqlSessionFactory
+        SqlSessionFactory factory = sessionFactory.getObject();
+        
+        // 注册类型处理器
+        TypeHandlerRegistry typeHandlerRegistry = factory.getConfiguration().getTypeHandlerRegistry();
+        typeHandlerRegistry.register(String[].class, JsonTypeHandler.class);
+        
+        return factory;
     }
 }
